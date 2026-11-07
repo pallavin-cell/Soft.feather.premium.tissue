@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Soft Feather Premium Soft Tissues. Made in India. Contact us for product details and bulk enquiries.">
+<title>Soft Feather | Premium Soft Tissues</title>
+<style>
+:root{--gold:#d9b34f;--gold2:#f4df9a;--black:#080808;--panel:#171717;--muted:#c9c9c9}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--black);color:#fff;line-height:1.7}
+a{color:inherit}.container{width:min(1160px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#050505;border-bottom:1px solid #8b6b29}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand img{width:145px;max-height:68px;object-fit:contain;display:block}
+nav ul{display:flex;gap:21px;list-style:none;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:14px}nav a:hover{color:var(--gold2)}
+.menu{display:none;background:none;border:0;color:var(--gold2);font-size:28px}
+.hero{min-height:560px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.55)),url("tissue(1).jpg") center/cover}
+.hero-copy{max-width:670px;padding:75px 0}.eyebrow{color:var(--gold2);letter-spacing:4px;text-transform:uppercase}
+h1{font-family:Georgia,serif;font-size:clamp(48px,7vw,76px);color:var(--gold2);line-height:1.12;margin:10px 0}
+.hero h2{font-size:clamp(22px,3vw,30px);font-weight:500;margin-bottom:15px}
+.hero p{color:#e1e1e1;max-width:600px;margin-bottom:22px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;text-decoration:none;font-weight:bold;padding:12px 22px;border-radius:5px;margin:5px 8px 5px 0}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+section{padding:76px 0}.dark{background:#111}.section-title{text-align:center;color:var(--gold2);font: bold clamp(28px,4vw,38px) Georgia,serif;margin-bottom:8px}
+.section-sub{text-align:center;color:var(--muted);margin:0 auto 38px;max-width:700px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+.photo{width:100%;display:block;object-fit:cover;border:1px solid #80652c;border-radius:12px;background:#222}
+.copy h3,.gold{color:var(--gold2)}.copy h3{font-size:26px;margin-bottom:12px}.copy p{color:var(--muted);margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--panel);border:1px solid #665020;border-radius:11px;padding:25px}
+.card h3{color:var(--gold2);font-size:21px;margin-bottom:10px}.card p,.card li{color:#d2d2d2}
+.card ul{padding-left:20px}
+.size-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.size{background:#1b1b1b;border:1px solid var(--gold);border-radius:10px;text-align:center;padding:28px}
+.size h3{font-size:28px;color:var(--gold2)}
+.packs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pack{background:#191919;border:1px solid #80652c;border-radius:10px;padding:22px;text-align:center}
+.pack h3{color:var(--gold2);font-size:23px}.pack p{color:#ccc}.price{font-size:21px;font-weight:bold;color:var(--gold2);margin-top:10px}
+.note{text-align:center;color:#ccc;margin-top:25px}
+.production-photo{max-height:440px}
+.business{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.business .card{text-align:center}.business .emoji{font-size:34px}
+.details{background:#151515;border:1px solid #80652c;border-radius:12px;padding:30px}
+.details h3{color:var(--gold2);font-size:24px;margin:0 0 12px}
+.details p{color:#ddd;margin:7px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-box{background:#191919;border:1px solid #80652c;border-radius:12px;padding:28px}
+.contact-box h3{color:var(--gold2);font-size:24px;margin-bottom:16px}
+.contact-box p{margin:12px 0;color:#ddd;overflow-wrap:anywhere}
+.contact-box a{color:var(--gold2);text-decoration:none}
+form input,form select,form textarea{width:100%;padding:13px;margin:0 0 13px;background:#080808;color:#fff;border:1px solid #555;border-radius:5px;font:inherit}
+form textarea{min-height:110px;resize:vertical}form button{border:0;cursor:pointer;width:100%;font:inherit}
+.location{text-align:center;background:#080808}.location p{color:#ccc;margin:10px 0 20px}
+footer{text-align:center;background:#030303;border-top:1px solid #80652c;padding:30px 15px;color:#aaa}
+footer img{width:125px;max-height:65px;object-fit:contain;margin-bottom:8px}
+footer strong{color:var(--gold2)}
+@media(max-width:850px){.menu{display:block}nav ul{display:none;position:absolute;top:78px;left:0;right:0;background:#080808;padding:20px 5%;flex-direction:column;border-bottom:1px solid var(--gold)}nav ul.open{display:flex}.two-col,.contact-grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.business{grid-template-columns:repeat(2,1fr)}.packs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){section{padding:55px 0}.cards,.size-grid,.business,.packs{grid-template-columns:1fr}.hero{min-height:510px}.hero-copy{padding:55px 0}.brand img{width:120px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav">
+  <a class="brand" href="#home"><img src="logo(1).jpg" alt="SK Soft Feather logo"></a>
+  <button class="menu" aria-label="Open menu" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+  <nav><ul>
+   <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#products">Products</a></li>
+   <li><a href="#quality">Quality</a></li><li><a href="#packs">Packs</a></li><li><a href="#company">Company</a></li><li><a href="#contact">Contact</a></li>
+  </ul></nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-copy">
+ <div class="eyebrow">SK • Made in India</div>
+ <h1>Soft Feather</h1><h2>Premium Soft Tissues</h2>
+ <p>Ultra-soft, skin-safe and hygienic tissue products for homes, travel, restaurants and offices. Available in different sizes and pack options.</p>
+ <a class="btn" href="#products">Explore Products</a><a class="btn" href="#contact">Contact Us</a>
+</div></section>
+
+<section class="dark" id="about"><div class="container">
+ <h2 class="section-title">About Soft Feather</h2><p class="section-sub">Premium Soft Tissues for everyday comfort</p>
+ <div class="two-col">
+  <img class="photo" src="tissue(1).jpg" alt="Soft Feather tissue product photograph">
+  <div class="copy"><h3>Softness You Can Trust</h3>
+   <p>Soft Feather is a premium soft tissue brand from Bengaluru, India.</p>
+   <p>Our product information highlights soft, skin-safe and hygienic tissues made using 100% virgin pulp, with lint-free quality.</p>
+   <p>Available in 2-ply and 3-ply options and multiple pack quantities. Custom printing and bulk packs are available on request.</p>
+   <a class="btn" href="#contact">Make an Enquiry</a>
+  </div>
+ </div>
+</div></section>
+
+<section id="products"><div class="container">
+ <h2 class="section-title">Our Products</h2><p class="section-sub">Premium Soft Feather tissues in options for different requirements.</p>
+ <div class="cards">
+  <article class="card"><h3>Premium Soft Tissues</h3><ul><li>Ultra-soft and skin-safe</li><li>100% virgin pulp</li><li>Lint-free and hygienic</li></ul></article>
+  <article class="card"><h3>2-Ply Option</h3><p>Two-ply tissue option. Contact us for available pack sizes and current pricing.</p></article>
+  <article class="card"><h3>3-Ply Option</h3><p>Three-ply tissue option. Contact us for available pack sizes and current pricing.</p></article>
+ </div>
+</div></section>
+
+<section class="dark"><div class="container">
+ <h2 class="section-title">Available Tissue Sizes</h2><p class="section-sub">Choose the size that matches your requirement.</p>
+ <div class="size-grid">
+  <div class="size"><h3>27 × 30 cm</h3><p>Width 27 cm × Length 30 cm</p></div>
+  <div class="size"><h3>30 × 30 cm</h3><p>Square tissue size</p></div>
+ </div>
+ <p class="note">2-ply and 3-ply options are available. The pack label shown for the 50 N-Pull pack specifies 1-ply.</p>
+</div></section>
+
+<section id="quality"><div class="container">
+ <h2 class="section-title">Our Quality</h2><p class="section-sub">Product qualities stated for Soft Feather tissues.</p>
+ <div class="cards">
+  <div class="card"><h3>Ultra-Soft</h3><p>Designed for a soft and comfortable feel.</p></div>
+  <div class="card"><h3>100% Virgin Pulp</h3><p>Made using 100% virgin pulp.</p></div>
+  <div class="card"><h3>Lint-Free & Hygienic</h3><p>Designed for clean and hygienic everyday use.</p></div>
+ </div>
+</div></section>
+
+<section class="dark" id="production"><div class="container">
+ <h2 class="section-title">Manufacturing & Production</h2><p class="section-sub">Soft Feather — Premium Soft Tissues</p>
+ <div class="two-col">
+  <img class="photo production-photo" src="image(2).png" alt="Soft Feather production and manufacturing image">
+  <div class="copy"><h3>Manufactured & Marketed in India</h3>
+   <p><strong class="gold">Manufactured & Marketed by:</strong><br>Sri Krishna Enterprises Pvt Ltd.</p>
+   <p>Dommasandra, Sarjapura Hobli,<br>Anekal Taluk, Bengaluru – 562125</p>
+   <p>Made in India. PAN India delivery is available; free delivery on bulk orders as stated in the product information.</p>
+   <a class="btn" href="#contact">Bulk Order Enquiry</a>
+  </div>
+ </div>
+</div></section>
+
+<section id="packs"><div class="container">
+ <h2 class="section-title">Available Packs & Pricing</h2><p class="section-sub">Select a pack size and contact us for the current price.</p>
+ <div class="packs">
+  <div class="pack"><h3>50 Sheets</h3><p>Premium tissue pack</p><div class="price">Price on enquiry</div></div>
+  <div class="pack"><h3>80 Sheets</h3><p>Premium tissue pack</p><div class="price">Price on enquiry</div></div>
+  <div class="pack"><h3>100 Sheets</h3><p>Premium tissue pack</p><div class="price">Price on enquiry</div></div>
+  <div class="pack"><h3>200 Sheets</h3><p>Premium tissue pack</p><div class="price">Price on enquiry</div></div>
+ </div>
+ <p class="note">Bulk packs available on request. Prices are not published because no confirmed price was provided.</p>
+</div></section>
+
+<section class="dark"><div class="container">
+ <h2 class="section-title">Best For</h2><p class="section-sub">Soft Feather tissues for everyday and business use.</p>
+ <div class="business">
+  <div class="card"><div class="emoji">🏠</div><h3>Home</h3></div>
+  <div class="card"><div class="emoji">✈️</div><h3>Travel</h3></div>
+  <div class="card"><div class="emoji">🍽️</div><h3>Restaurants</h3></div>
+  <div class="card"><div class="emoji">🏢</div><h3>Offices</h3></div>
+ </div>
+</div></section>
+
+<section id="company"><div class="container">
+ <h2 class="section-title">Company & Product Information</h2><p class="section-sub">Business details and pack information from the product label.</p>
+ <div class="two-col">
+  <div class="details">
+   <h3>Soft Feather</h3>
+   <p><strong>Company:</strong> Premier Soft Tissues India Ltd.</p>
+   <p><strong>Address:</strong> Dommasandra, Sarjapura Hobli, Anekal Taluk, Bengaluru – 562125</p>
+   <hr style="border-color:#665020;margin:18px 0">
+   <h3>Manufactured & Marketed By</h3>
+   <p><strong>Sri Krishna Enterprises Pvt Ltd.</strong></p>
+   <p>Dommasandra, Sarjapura Hobli, Anekal Taluk, Bengaluru – 562125</p>
+  </div>
+  <div class="details">
+   <h3>50 N-Pulls Pack Details</h3>
+   <p><strong>Product:</strong> Soft Feather</p>
+   <p><strong>Quantity:</strong> 50 N-Pulls</p>
+   <p><strong>No. of Sheets:</strong> 50 (Usable)</p>
+   <p><strong>Size:</strong> W-27 cm × L-30 cm</p>
+   <p><strong>Ply:</strong> 1-Ply</p>
+   <p><strong>MRP:</strong> Refer to pack label</p>
+   <p><strong>USP:</strong> Refer to pack label</p>
+   <p><strong>Batch No. / Date of Mfg:</strong> Printed on pack</p>
+   <p><strong>Best Before:</strong> 36 months from date of manufacturing</p>
+  </div>
+ </div>
+ <div class="details" style="margin-top:22px">
+  <h3>Consumer Feedback & Complaints</h3>
+  <p>Contact the Customer Care Executive at the “Marketed by” address listed above.</p>
+  <p><strong>Made in India</strong> • Eco-friendly • Custom printing available</p>
+ </div>
+</div></section>
+
+<section class="dark" id="contact"><div class="container">
+ <h2 class="section-title">Contact Us</h2><p class="section-sub">For product details, pricing, bulk orders and customer enquiries.</p>
+ <div class="contact-grid">
+  <div class="contact-box">
+   <h3>Soft Feather</h3>
+   <p>📞 <strong>Phone:</strong><br><a href="tel:+918088422563">+91-8088422563</a> / <a href="tel:+919108552263">9108552263</a></p>
+   <p>✉️ <strong>Email:</strong><br><a href="mailto:sksoftfeather@gmail.com">sksoftfeather@gmail.com</a></p>
+   <p>📷 <strong>Instagram:</strong><br><a href="https://www.instagram.com/softfeather.in/" target="_blank" rel="noopener">@softfeather.in</a></p>
+   <p>📍 <strong>Address:</strong><br>Dommasandra, Sarjapura Hobli, Anekal Taluk, Bengaluru – 562125</p>
+   <p>🚚 PAN India delivery • Free delivery on bulk orders</p>
+  </div>
+  <div class="contact-box">
+   <h3>Send an Enquiry</h3>
+   <form onsubmit="sendEnquiry(event)">
+    <input id="customerName" type="text" placeholder="Your name" required>
+    <input id="customerPhone" type="tel" placeholder="Your phone number" required>
+    <input id="customerEmail" type="email" placeholder="Your email (optional)">
+    <select id="productType" required>
+     <option value="">Select product / enquiry</option>
+     <option>50 N-Pulls pack</option><option>50 sheets pack</option>
+     <option>80 sheets pack</option><option>100 sheets pack</option>
+     <option>200 sheets pack</option><option>2-Ply tissues</option>
+     <option>3-Ply tissues</option><option>Bulk order</option><option>Custom printing</option>
+    </select>
+    <textarea id="customerMessage" placeholder="Your requirements" required></textarea>
+    <button class="btn" type="submit">Send Enquiry on WhatsApp</button>
+   </form>
+  </div>
+ </div>
+</div></section>
+
+<section class="location"><div class="container">
+ <h2 class="section-title">Find Our Location</h2>
+ <p>Open the Soft Feather location in Google Maps.</p>
+ <a class="btn" href="https://maps.app.goo.gl/MaAfynbJZC6WzJzH8?g_st=aw" target="_blank" rel="noopener">View Location on Google Maps</a>
+</div></section>
+</main>
+
+<footer>
+ <img src="logo(1).jpg" alt="Soft Feather logo">
+ <p><strong>Soft Feather – Premium Soft Tissues</strong></p>
+ <p>Ultra-Soft • Skin-Safe • Hygienic • Made in India</p>
+ <p>© 2026 Soft Feather. All rights reserved.</p>
+</footer>
+
+<script>
+function sendEnquiry(event){
+ event.preventDefault();
+ const name=document.getElementById("customerName").value.trim();
+ const phone=document.getElementById("customerPhone").value.trim();
+ const email=document.getElementById("customerEmail").value.trim();
+ const product=document.getElementById("productType").value;
+ const message=document.getElementById("customerMessage").value.trim();
+ const text="Hello Soft Feather, I would like to make an enquiry."
+  +"\nName: "+name+"\nPhone: "+phone+"\nEmail: "+(email||"Not provided")
+  +"\nProduct: "+product+"\nRequirements: "+message;
+ const url="https://wa.me/918088422563?text="+encodeURIComponent(text);
+ window.open(url,"_blank");
+}
+document.querySelectorAll("nav a").forEach(link=>{
+ link.addEventListener("click",()=>document.querySelector("nav ul").classList.remove("open"));
+});
+</script>
+</body>
+</html>
