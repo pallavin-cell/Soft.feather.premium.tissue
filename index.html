@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soft Feather | Premium Soft Tissue</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --gold: #d6b36a;
+    --light-gold: #f3dfad;
+    --black: #090909;
+    --cream: #f5eee1;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--black);
+    color: var(--cream);
+    overflow-x: hidden;
+}
+
+/* MOVING GOLDEN BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: -3;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(190,145,65,.16), transparent 30%),
+      radial-gradient(circle at 80% 60%, rgba(255,255,255,.07), transparent 25%),
+      radial-gradient(circle at 50% 90%, rgba(190,145,65,.13), transparent 30%);
+    animation: ambient 20s ease-in-out infinite alternate;
+}
+
+@keyframes ambient {
+    from { transform: translate(-3%, -2%) rotate(0deg); }
+    to { transform: translate(3%, 2%) rotate(8deg); }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: .12;
+    background-image: radial-gradient(rgba(255,255,255,.4) .6px, transparent .6px);
+    background-size: 35px 35px;
+}
+
+/* REAL FLOATING SVG FEATHERS */
+.feather-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.feather {
+    position: absolute;
+    top: 110%;
+    width: 48px;
+    height: 90px;
+    display: block;
+    opacity: 0;
+    background: transparent;
+    animation: featherDrift linear infinite;
+    will-change: transform, opacity;
+}
+
+.feather svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 0 9px rgba(214,179,106,.65));
+}
+
+.feather:nth-child(1) {
+    left: 5%;
+    width: 42px;
+    height: 85px;
+    animation-duration: 24s;
+    animation-delay: -5s;
+}
+
+.feather:nth-child(2) {
+    left: 16%;
+    width: 28px;
+    height: 58px;
+    animation-duration: 29s;
+    animation-delay: -18s;
+}
+
+.feather:nth-child(3) {
+    left: 27%;
+    width: 53px;
+    height: 100px;
+    animation-duration: 26s;
+    animation-delay: -12s;
+}
+
+.feather:nth-child(4) {
+    left: 38%;
+    width: 32px;
+    height: 65px;
+    animation-duration: 32s;
+    animation-delay: -22s;
+}
+
+.feather:nth-child(5) {
+    left: 49%;
+    width: 44px;
+    height: 88px;
+    animation-duration: 25s;
+    animation-delay: -9s;
+}
+
+.feather:nth-child(6) {
+    left: 60%;
+    width: 29px;
+    height: 60px;
+    animation-duration: 30s;
+    animation-delay: -16s;
+}
+
+.feather:nth-child(7) {
+    left: 70%;
+    width: 50px;
+    height: 95px;
+    animation-duration: 27s;
+    animation-delay: -20s;
+}
+
+.feather:nth-child(8) {
+    left: 80%;
+    width: 34px;
+    height: 70px;
+    animation-duration: 31s;
+    animation-delay: -7s;
+}
+
+.feather:nth-child(9) {
+    left: 90%;
+    width: 43px;
+    height: 85px;
+    animation-duration: 26s;
+    animation-delay: -14s;
+}
+
+.feather:nth-child(10) {
+    left: 96%;
+    width: 29px;
+    height: 58px;
+    animation-duration: 33s;
+    animation-delay: -25s;
+}
+
+@keyframes featherDrift {
+    0% {
+        transform: translate3d(0,0,0) rotate(-25deg);
+        opacity: 0;
+    }
+    12% {
+        opacity: .85;
+    }
+    30% {
+        transform: translate3d(40px,-35vh,0) rotate(35deg);
+        opacity: .7;
+    }
+    55% {
+        transform: translate3d(-30px,-70vh,0) rotate(100deg);
+        opacity: .8;
+    }
+    80% {
+        transform: translate3d(45px,-110vh,0) rotate(170deg);
+        opacity: .5;
+    }
+    100% {
+        transform: translate3d(-30px,-150vh,0) rotate(240deg);
+        opacity: 0;
+    }
+}
+
+/* WATERMARK */
+.brand-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-15deg);
+    font-size: clamp(55px,12vw,155px);
+    font-weight: 900;
+    letter-spacing: 12px;
+    white-space: nowrap;
+    color: rgba(214,179,106,.035);
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+}
+
+/* COMMON */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* LAYERING */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+section {
+    position: relative;
+    z-index: auto;
+}
+
+section > * {
+    position: relative;
+    z-index: 3;
+}
+
+footer {
+    position: relative;
+    z-index: 3;
+}
+
+/* NAVIGATION */
+header {
+    background: rgba(8,8,8,.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(214,179,106,.2);
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    padding: 17px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    color: var(--gold);
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: #eee;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-enquiry {
+    border: 1px solid var(--gold);
+    padding: 10px 17px;
+    border-radius: 30px;
+    color: var(--gold) !important;
+}
+
+.menu-btn {
+    display: none;
+    color: var(--gold);
+    background: none;
+    border: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* SECTION STYLING */
+section {
+    padding: 105px 8%;
+    position: relative;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-heading span,
+.eyebrow {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+.section-heading h2 {
+    font-size: clamp(30px,4vw,44px);
+    margin-top: 13px;
+    color: var(--light-gold);
+    font-weight: 500;
+}
+
+.section-heading p {
+    max-width: 650px;
+    margin: 14px auto 0;
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.gold-btn {
+    display: inline-block;
+    background: linear-gradient(120deg,#b88a3e,#f2d99b,#b88a3e);
+    color: #111;
+    padding: 14px 27px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+}
+
+.gold-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(214,179,106,.25);
+}
+
+/* HERO */
+.hero {
+    min-height: 100vh;
+    padding: 130px 7% 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.logo-circle {
+    width: clamp(190px,29vw,330px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    animation: floatLogo 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px rgba(214,179,106,.28));
+    border: 2px solid rgba(214,179,106,.65);
+    background: #090909;
+}
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+}
+
+@keyframes floatLogo {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-18px) rotate(2deg); }
+}
+
+.hero h1 {
+    font-size: clamp(39px,7vw,76px);
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: var(--light-gold);
+}
+
+.hero h3 {
+    font-size: clamp(14px,2vw,20px);
+    letter-spacing: 5px;
+    font-weight: 400;
+    margin-top: 13px;
+    color: #ddd;
+}
+
+.hero p {
+    max-width: 650px;
+    line-height: 1.9;
+    color: #bdbdbd;
+    margin: 22px auto 28px;
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.outline-btn {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.outline-btn:hover {
+    background: var(--gold);
+    color: #111;
+}
+
+/* ABOUT */
+.split-layout {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.photo-frame {
+    position: relative;
+    padding: 10px;
+    border: 1px solid rgba(214,179,106,.45);
+    border-radius: 18px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.content-text h2 {
+    color: var(--light-gold);
+    font-size: 37px;
+    font-weight: 500;
+    margin: 13px 0 20px;
+}
+
+.content-text p {
+    color: #c4c0b8;
+    line-height: 1.9;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.gold-line {
+    width: 65px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px 0;
+}
+
+/* FEATURES */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.feature-card {
+    padding: 32px 24px;
+    border: 1px solid rgba(214,179,106,.25);
+    border-radius: 15px;
+    background: rgba(255,255,255,.025);
+    transition: .35s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    background: rgba(214,179,106,.07);
+}
+
+.feature-icon {
+    font-size: 30px;
+    margin-bottom: 17px;
+}
+
+.feature-card h3 {
+    color: var(--light-gold);
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* PRODUCT INFORMATION */
+.product-info {
+    background: rgba(255,255,255,.025);
+}
+
+.size-list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 23px 0;
+}
+
+.size-pill {
+    border: 1px solid rgba(214,179,106,.6);
+    border-radius: 25px;
+    padding: 11px 18px;
+    color: var(--light-gold);
+    font-size: 13px;
+}
+
+/* CUSTOMIZATION */
+.custom-section {
+    text-align: center;
+}
+
+.custom-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.custom-content p {
+    color: #bbb;
+    line-height: 1.9;
+    margin: 15px auto 25px;
+}
+
+/* BULK ORDER AND FACTORY */
+.visit-box {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px;
+    border: 1px solid rgba(214,179,106,.4);
+    border-radius: 20px;
+    text-align: center;
+    background: linear-gradient(130deg,rgba(214,179,106,.09),rgba(255,255,255,.02));
+}
+
+.visit-box h2 {
+    color: var(--light-gold);
+    font-size: 32px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.visit-box p {
+    color: #bbb;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 25px;
+}
+
+/* ENQUIRY */
+.enquiry-section {
+    background: rgba(255,255,255,.025);
+}
+
+.enquiry-form {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid rgba(214,179,106,.3);
+    border-radius: 18px;
+    background: rgba(0,0,0,.35);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    color: var(--light-gold);
+    font-size: 13px;
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    background: #151515;
+    border: 1px solid #494033;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-group select option {
+    background: #151515;
+}
+
+/* CONTACT */
+.contact-grid {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.contact-card {
+    padding: 27px 20px;
+    text-align: center;
+    border: 1px solid rgba(214,179,106,.25);
+    border-radius: 13px;
+    background: rgba(255,255,255,.025);
+}
+
+.contact-card h3 {
+    color: var(--gold);
+    font-size: 15px;
+    margin: 12px 0;
+}
+
+.contact-card p,
+.contact-card a {
+    color: #bbb;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.contact-card a:hover {
+    color: var(--gold);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid rgba(214,179,106,.2);
+    color: #999;
+    font-size: 12px;
+    line-height: 2;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+/* WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 22px;
+    z-index: 1001;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.4);
+    transition: .3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* REVEAL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:850px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #0b0b0b;
+        flex-direction: column;
+        padding: 25px;
+        gap: 22px;
+        border-bottom: 1px solid rgba(214,179,106,.3);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .features {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section {
+        padding: 80px 7%;
+    }
+}
+
+@media(max-width:560px) {
+    .features,
+    .contact-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .enquiry-form {
+        padding: 22px 17px;
+    }
+
+    .photo-frame img {
+        height: 270px;
+    }
+
+    .visit-box {
+        padding: 30px 18px;
+    }
+
+    .hero {
+        min-height: 95vh;
+    }
+
+    .hero h1 {
+        letter-spacing: 3px;
+    }
+
+    .hero h3 {
+        letter-spacing: 2px;
+    }
+
+    .feather {
+        width: 25px !important;
+        height: 52px !important;
+    }
+
+    .brand-watermark {
+        letter-spacing: 5px;
+        font-size: 55px;
+    }
+}
+
+/* REDUCED MOTION */
+@media(prefers-reduced-motion:reduce) {
+    .feather {
+        animation-duration: 40s !important;
+    }
+
+    .logo-circle {
+        animation: none !important;
+    }
+
+    .reveal {
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING REAL GOLDEN FEATHERS -->
+<div class="feather-background" aria-hidden="true">
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+    <span class="feather">
+        <svg viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 105 C28 75 12 42 22 12 C27 -2 48 5 49 24 C51 48 39 76 30 105Z" fill="#d6b36a" fill-opacity=".65" stroke="#f3dfad" stroke-width="1.5"/>
+            <path d="M30 105 Q32 53 45 17 M30 105 L19 28 M30 105 L42 42 M30 105 L17 49 M30 105 L38 64 M30 105 L23 76" fill="none" stroke="#f3dfad" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+    </span>
+
+</div>
+
+<!-- WATERMARK -->
+<div class="brand-watermark" aria-hidden="true">
+    SOFT FEATHER
+</div>
+
+<header>
+    <nav class="navbar">
+        <a href="#home" class="brand">SOFT FEATHER</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#features">Why Us</a>
+            <a href="#products">Our Tissue</a>
+            <a href="#custom">Customization</a>
+            <a href="#visit">Factory Visit</a>
+            <a href="#contact">Contact</a>
+            <a href="#enquiry" class="nav-enquiry">Enquire Now</a>
+        </div>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="logo-circle">
+        <img src="logo(1).jpg" alt="Soft Feather SK logo">
+    </div>
+
+    <span class="eyebrow">Comfort • Care • Quality</span>
+
+    <h1>SOFT FEATHER</h1>
+    <h3>PREMIUM SOFT TISSUE</h3>
+
+    <p>
+        Experience softness and quality with Soft Feather.
+        Thoughtfully made tissue products for everyday comfort,
+        personal care and professional requirements.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="#products" class="gold-btn">Explore Our Tissue</a>
+        <a href="#enquiry" class="outline-btn">Send an Enquiry</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="split-layout reveal">
+
+        <div class="photo-frame">
+            <img src="factory.png" alt="Soft Feather factory">
+        </div>
+
+        <div class="content-text">
+            <span class="eyebrow">Get to Know Us</span>
+            <h2>About Soft Feather</h2>
+            <div class="gold-line"></div>
+
+            <p>
+                Soft Feather is focused on providing quality soft tissue
+                products designed for comfort and everyday use.
+            </p>
+
+            <p>
+                We value quality, customer satisfaction and reliable service.
+                Our aim is to provide suitable tissue solutions for individual,
+                business and bulk requirements.
+            </p>
+
+            <p>
+                Whether you need regular supplies or customized requirements,
+                our team is ready to assist you.
+            </p>
+
+            <a href="#enquiry" class="gold-btn">Connect With Us</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <div class="section-heading reveal">
+        <span>Our Commitment</span>
+        <h2>Why Choose Soft Feather?</h2>
+        <p>Quality-focused service with solutions to suit different customer requirements.</p>
+    </div>
+
+    <div class="features">
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">✧</div>
+            <h3>Soft & Comfortable</h3>
+            <p>Designed with everyday comfort and a pleasant soft feel in mind.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">◇</div>
+            <h3>Customization</h3>
+            <p>Discuss your requirements and explore customization possibilities.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">▤</div>
+            <h3>Bulk Orders</h3>
+            <p>Enquire with us for larger quantities and business requirements.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">✦</div>
+            <h3>Customer Focus</h3>
+            <p>We aim to understand your needs and provide suitable solutions.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">⌂</div>
+            <h3>Factory Visits</h3>
+            <p>Customers can enquire about visiting our factory directly.</p>
+        </div>
+
+        <div class="feature-card reveal">
+            <div class="feature-icon">♡</div>
+            <h3>Reliable Service</h3>
+            <p>We value long-term customer relationships and dependable support.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- TISSUE INFORMATION -->
+<section class="product-info" id="products">
+
+    <div class="section-heading reveal">
+        <span>Our Product</span>
+        <h2>Softness in Every Detail</h2>
+        <p>Discover Soft Feather premium soft tissue and enquire about your requirements.</p>
+    </div>
+
+    <div class="split-layout reveal">
+
+        <div class="content-text">
+            <span class="eyebrow">Soft Feather Collection</span>
+            <h2>Premium Soft Tissue</h2>
+            <div class="gold-line"></div>
+
+            <p>
+                Soft Feather premium soft tissue is presented with a focus
+                on softness, convenience and everyday usability.
+            </p>
+
+            <p>
+                We welcome enquiries from individuals, businesses and
+                customers looking for bulk supply or customized requirements.
+            </p>
+
+            <h3 style="color:var(--light-gold);font-weight:500;margin-top:24px;">
+                Available Tissue Sizes
+            </h3>
+
+            <div class="size-list">
+                <span class="size-pill">27 × 30 cm</span>
+                <span class="size-pill">30 × 30 cm</span>
+            </div>
+
+            <a href="#enquiry" class="gold-btn">Enquire About Tissue</a>
+        </div>
+
+        <div class="photo-frame">
+            <img src="tissue(1).jpg" alt="Soft Feather tissue product presentation">
+        </div>
+
+    </div>
+</section>
+
+<!-- CUSTOMIZATION -->
+<section class="custom-section" id="custom">
+    <div class="custom-content reveal">
+        <span class="eyebrow">Made Around Your Requirements</span>
+        <h2 style="color:var(--light-gold);font-size:clamp(30px,4vw,43px);font-weight:500;margin:15px 0;">
+            Customized Solutions
+        </h2>
+
+        <div class="gold-line" style="margin:20px auto;"></div>
+
+        <p>
+            Every customer may have different requirements.
+            Contact Soft Feather to discuss tissue sizes, customization
+            possibilities, quantity requirements and other specifications.
+        </p>
+
+        <a href="#enquiry" class="gold-btn">Request Customization</a>
+    </div>
+</section>
+
+<!-- BULK ORDER -->
+<section>
+    <div class="visit-box reveal">
+        <span class="eyebrow">For Businesses & Institutions</span>
+        <h2>Bulk Order Enquiries</h2>
+
+        <p>
+            Looking for larger quantities? Get in touch with Soft Feather
+            to discuss your bulk requirements, quantity and supply details.
+        </p>
+
+        <a href="#enquiry" class="gold-btn">Enquire for Bulk Orders</a>
+    </div>
+</section>
+
+<!-- FACTORY VISIT -->
+<section id="visit">
+    <div class="visit-box reveal">
+        <span class="eyebrow">Meet Us in Person</span>
+        <h2>Visit Our Factory</h2>
+
+        <p>
+            We welcome customers who wish to visit our factory and learn
+            more about our work. Contact us in advance to discuss a
+            convenient visit.
+        </p>
+
+        <a href="https://maps.app.goo.gl/MaAfynbJZC6WzJzH8?g_st=aw"
+           target="_blank" rel="noopener" class="gold-btn">
+            View Factory Location
+        </a>
+    </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="enquiry-section" id="enquiry">
+
+    <div class="section-heading reveal">
+        <span>We Would Love to Hear From You</span>
+        <h2>Send an Enquiry</h2>
+        <p>Share your requirements and our team can get in touch with you.</p>
+    </div>
+
+    <form class="enquiry-form reveal" id="enquiryForm">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label for="customerName">Your Name *</label>
+                <input type="text" id="customerName" required placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="customerPhone">Phone Number *</label>
+                <input type="tel" id="customerPhone" required
+                       pattern="[0-9+\-\s]{10,15}" placeholder="Enter your number">
+            </div>
+
+            <!-- EMAIL ADDRESS IS OPTIONAL -->
+            <div class="form-group">
+                <label for="customerEmail">Email Address (Optional)</label>
+                <input type="email" id="customerEmail" placeholder="Enter your email (optional)">
+            </div>
+
+            <div class="form-group">
+                <label for="enquiryType">Enquiry Type *</label>
+                <select id="enquiryType" required>
+                    <option value="">Select enquiry type</option>
+                    <option>General Enquiry</option>
+                    <option>Product Enquiry</option>
+                    <option>Tissue Size - 27 × 30 cm</option>
+                    <option>Tissue Size - 30 × 30 cm</option>
+                    <option>Other Tissue Size Requirement</option>
+                    <option>Customization</option>
+                    <option>Bulk Order</option>
+                    <option>Factory Visit</option>
+                    <option>Business / Wholesale Enquiry</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity Required</label>
+                <input type="text" id="quantity" placeholder="Enter approximate quantity">
+            </div>
+
+            <div class="form-group">
+                <label for="size">Preferred Tissue Size</label>
+                <select id="size">
+                    <option value="">Select size</option>
+                    <option>27 × 30 cm</option>
+                    <option>30 × 30 cm</option>
+                    <option>Other / Custom Size</option>
+                    <option>Not Sure</option>
+                </select>
+            </div>
+
+            <div class="form-group full">
+                <label for="message">Your Message *</label>
+                <textarea id="message" required placeholder="Tell us about your requirements..."></textarea>
+            </div>
+
+            <div class="form-group full">
+                <label for="sendTo">Send Enquiry To *</label>
+                <select id="sendTo" required>
+                    <option value="918792022563">+91 87920 22563</option>
+                    <option value="919108552263">+91 91085 52263</option>
+                </select>
+            </div>
+
+            <div class="form-group full">
+                <button type="submit" class="gold-btn" style="width:100%;">
+                    Send Enquiry on WhatsApp
+                </button>
+            </div>
+
+        </div>
+    </form>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-heading reveal">
+        <span>Get in Touch</span>
+        <h2>Contact Soft Feather</h2>
+        <p>We are happy to assist you with product, customization and bulk enquiries.</p>
+    </div>
+
+    <div class="contact-grid">
+
+        <div class="contact-card reveal">
+            <div class="feature-icon">☎</div>
+            <h3>Call Us</h3>
+            <p><a href="tel:+918792022563">+91 87920 22563</a></p>
+            <p><a href="tel:+919108552263">+91 91085 52263</a></p>
+        </div>
+
+        <div class="contact-card reveal">
+            <div class="feature-icon">✉</div>
+            <h3>Email Us</h3>
+            <p><a href="mailto:sksoftfeather@gmail.com">sksoftfeather@gmail.com</a></p>
+        </div>
+
+        <div class="contact-card reveal">
+            <div class="feature-icon">◎</div>
+            <h3>Instagram</h3>
+            <p>
+                <a href="https://www.instagram.com/softfeather.in/"
+                   target="_blank" rel="noopener">@softfeather.in</a>
+            </p>
+        </div>
+
+        <div class="contact-card reveal">
+            <div class="feature-icon">⌖</div>
+            <h3>Our Location</h3>
+            <p>
+                <a href="https://maps.app.goo.gl/MaAfynbJZC6WzJzH8?g_st=aw"
+                   target="_blank" rel="noopener">View on Google Maps</a>
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <strong>SOFT FEATHER</strong><br>
+    Premium Soft Tissue<br>
+    Comfort • Care • Quality<br><br>
+    © 2026 Soft Feather. All Rights Reserved.
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="whatsapp-float"
+   href="https://wa.me/918792022563"
+   target="_blank" rel="noopener"
+   aria-label="Chat with Soft Feather on WhatsApp">✆</a>
+
+<script>
+/* MOBILE MENU */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuBtn.textContent = navLinks.classList.contains("active") ? "✕" : "☰";
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuBtn.textContent = "☰";
+    });
+});
+
+/* ENQUIRY TO WHATSAPP */
+document.getElementById("enquiryForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value.trim();
+    const phone = document.getElementById("customerPhone").value.trim();
+    const email = document.getElementById("customerEmail").value.trim();
+    const type = document.getElementById("enquiryType").value;
+    const quantity = document.getElementById("quantity").value.trim();
+    const size = document.getElementById("size").value;
+    const message = document.getElementById("message").value.trim();
+    const sendTo = document.getElementById("sendTo").value;
+
+    const text = `
+Hello Soft Feather!
+
+I would like to make an enquiry.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email || "Not provided"}
+
+Enquiry Type: ${type}
+Quantity Required: ${quantity || "Not specified"}
+Preferred Tissue Size: ${size || "Not specified"}
+
+Message:
+${message}
+
+Thank you.
+    `;
+
+    const whatsappURL = "https://wa.me/" + sendTo + "?text=" + encodeURIComponent(text);
+    window.open(whatsappURL, "_blank");
+});
+
+/* SCROLL REVEAL */
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+});
+</script>
+
+</body>
+</html>
